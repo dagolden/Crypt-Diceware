@@ -1,0 +1,91 @@
+{
+   "abstract" : "Random passphrase generator loosely based on the Diceware algorithm",
+   "author" : [
+      "David Golden <dagolden@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "apache_2_0"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Crypt-Diceware",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "examples",
+         "corpus"
+      ],
+      "package" : [
+         "DB"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::CPAN::Meta" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Class::Load" : "0",
+            "Data::Entropy::Algorithms" : "0",
+            "Sub::Exporter" : "0",
+            "perl" : "5.008001",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Test::More" : "0.96"
+         }
+      }
+   },
+   "provides" : {
+      "Crypt::Diceware" : {
+         "file" : "lib/Crypt/Diceware.pm",
+         "version" : "0.001"
+      },
+      "Crypt::Diceware::Wordlist::Beale" : {
+         "file" : "lib/Crypt/Diceware/Wordlist/Beale.pm",
+         "version" : "0.001"
+      },
+      "Crypt::Diceware::Wordlist::Common" : {
+         "file" : "lib/Crypt/Diceware/Wordlist/Common.pm",
+         "version" : "0.001"
+      },
+      "Crypt::Diceware::Wordlist::Original" : {
+         "file" : "lib/Crypt/Diceware/Wordlist/Original.pm",
+         "version" : "0.001"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/dagolden/crypt-diceware/issues"
+      },
+      "homepage" : "https://metacpan.org/release/Crypt-Diceware",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/dagolden/crypt-diceware.git",
+         "web" : "https://github.com/dagolden/crypt-diceware"
+      }
+   },
+   "version" : "0.001"
+}
+
