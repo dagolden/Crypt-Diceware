@@ -40,7 +40,7 @@ sub _build_words {
 =head1 SYNOPSIS
 
   use Crypt::Diceware;
-  my @phrase = words(4);
+  my @phrase = words(4); # qw/starker call recur outlaw/
 
   # with alternate word lists
   use Crypt::Diceware words => { wordlist => 'Original' };
@@ -52,19 +52,20 @@ This module generates a random passphrase of words based loosely on the
 L<Diceware|http://world.std.com/~reinhold/diceware.html> algorithm by Arnold G.
 Reinhold.
 
-A passphrase consists of a randomly selected words chosen from a list of over
-seven thousand words.  A passphrase of four or five words is likely to be
-stronger than a typical human-generated password, which tends to be too-short
-and over-sample common letters ("e") and numbers ("1").
+A Diceware passphrase consists of a randomly selected words chosen from a list
+of over seven thousand words.  A passphrase of four or five words is likely to
+be stronger than typical human-generated passwords, which tend to be
+too-short and over-sample common letters ("e") and numbers ("1").
 
-Words are selected by random numbers from L<Data::Entropy>, which is reasonably
+Words are selected by randomly using L<Data::Entropy>, which is reasonably
 cryptographically strong.
 
 =head1 USAGE
 
-The module exports a single subroutine, C<words>, by default, which uses the
-L<Crypt::Diceware::Wordlist::Common> word list.  An alternate wordlist may be
-specified:
+By default, this module exports a single subroutine, C<words>, which uses the
+L<Crypt::Diceware::Wordlist::Common> word list.
+
+An alternate wordlist may be specified:
 
   use Crypt::Diceware words => { wordlist => 'Original' };
 
@@ -77,9 +78,9 @@ Exporting is done via L<Sub::Exporter> so any of its features may be used:
 
   my @phrase = words(4);
 
-Takes a positive integer argument and returns a list of that many
-randomly-selected words (rounding down to an integer length).  Returns the
-empty list if the argument is missing or not a positive number.
+Takes a positive numeric argument and returns a list of that many
+randomly-selected words.  Returns the empty list if the argument is missing or
+not a positive number.
 
 =head1 SEE ALSO
 

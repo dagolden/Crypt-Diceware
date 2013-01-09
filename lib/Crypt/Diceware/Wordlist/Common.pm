@@ -845,7 +845,7 @@ our @Words = qw{
   weirdly welcome well welt west westward whatnot wheel wheeze whereupon
   wherever wherewith whet while whiled whimper whimsical whine whip whipping
   whippy whirr whirred whistle white whittle whiz whodunit wholly whomever
-  whoop whoops whooshes whores wide widening widowed widower wield wielders
+  whoop whoops whooshes wide widening widowed widower wield wielders
   wiggle wiggly wild wildcard wile wilful willowy wills wimp win/win winced
   windage windswept wingman winsome winter wintry wipeout wiper wires wiretap
   wiry wise wisecrack wiseguy wishful withered within witless witling
@@ -872,21 +872,25 @@ our @Words = qw{
 
 =head1 DESCRIPTION
 
-An English language word list based on lists of common English words.
-Compared to the Original and Beale wordlists, this list has some longer words,
-but no nonsense words ("fs", "ga", "rrrr"), so everything on this list
-should be familiar to a reasonable well-read 
+A Diceware word list based on common English words.  Compared to the Original
+and Beale wordlists, this list has some longer words, but no nonsense words
+("fs", "ga", "rrrr") or symbol words ("%%", "!!"), so everything on this list
+should be familiar to a reasonable well-read English speaker and straightforward
+to memorize.
 
-The words were assembled from various free lists or sample lists of the most
+The words were assembled from various free or sample lists of the most
 common English words available at
 L<freevocabulary.com|http://www.freevocabulary.com> and
 L<wordfrequency.info|http://www.wordfrequency.info>.  It is heavily weighted
-towards the first five thousand or so common words, sprinkled with samples
-from the 100,000 most common words.
+towards the first five thousand or so common words, sprinkled with additional
+words taken from samples of the 100,000 most common words.
 
 All words are between three and nine letters.  Some common profanity words have
-been removed.  All words are lower case.  (Any trademark names or offensive
-words included are an oversight.)
+been removed.  All words are lower case.  Any trademarked or offensive
+words remaining are an oversight.
+
+It has about 100 more words than a standard Diceware wordlist, which doesn't
+change the passphrase strength in any meaningful way.
 
 =head1 SEE ALSO
 
