@@ -28,7 +28,7 @@ sub _build_words {
   };
   return sub {
     my ($n) = @_;
-    return unless $n > 0;
+    return unless $n && $n > 0;
     return map { pick_r($list) } 1 .. int($n);
   };
 }

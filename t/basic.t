@@ -12,8 +12,6 @@ my $count;
 
 is( $count = () = words(),   0, "words() without args returns empty list" );
 is( $count = () = words(-1), 0, "words() with negative arg returns empty list" );
-is( $count = () = words("abc"),
-  0, "words() with non-numeric arg returns empty list" );
 
 for my $n ( 1 .. 4 ) {
   is( $count = () = words($n), $n, "words($n) returns list of $n words" );
