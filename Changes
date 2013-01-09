@@ -2,6 +2,8 @@ Revision history for Crypt-Diceware
 
 {{$NEXT}}
 
+0.002     2013-01-08 22:54:21 America/New_York
+
   [DOCUMENTED]
 
   - Added link to Neil Bower's comparison of CPAN password generators
