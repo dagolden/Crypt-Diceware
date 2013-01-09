@@ -59,19 +59,19 @@
    "provides" : {
       "Crypt::Diceware" : {
          "file" : "lib/Crypt/Diceware.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Crypt::Diceware::Wordlist::Beale" : {
          "file" : "lib/Crypt/Diceware/Wordlist/Beale.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Crypt::Diceware::Wordlist::Common" : {
          "file" : "lib/Crypt/Diceware/Wordlist/Common.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Crypt::Diceware::Wordlist::Original" : {
          "file" : "lib/Crypt/Diceware/Wordlist/Original.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       }
    },
    "release_status" : "stable",
@@ -86,6 +86,6 @@
          "web" : "https://github.com/dagolden/crypt-diceware"
       }
    },
-   "version" : "0.001"
+   "version" : "0.002"
 }
 

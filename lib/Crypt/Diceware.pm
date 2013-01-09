@@ -84,6 +84,8 @@ not a positive number.
 
 =head1 SEE ALSO
 
+Diceware and Crypt::Diceware related:
+
 =for :list
 * L<Diceware|http://world.std.com/~reinhold/diceware.html>
 * L<Crypt::Diceware::Wordlist::Common>
@@ -95,6 +97,7 @@ Other CPAN passphrase generators:
 =for :list
 * L<Crypt::PW44>
 * L<Crypt::XkcdPassword>
+* L<Review of CPAN password/phrase generators|http://neilb.org/reviews/passwords.html>
 
 About password strength in general:
 
