@@ -367,7 +367,7 @@ our @Words = qw{
   heredity heresy heretic herewith heritage hernia heroic herstory hesitancy
   hesitant hetero heterodox hexagon hexapod heyday hiatus hibernal hickory
   hideaway hideous hie high higher hightail hiker hilarious hillbilly hillock
-  hillside hinder hindmost hindrance hint hints hippest hirsute his his/her
+  hillside hinder hindmost hindrance hint hints hippest hirsute his
   hissy history hitherto hive hmong hoard hoarse hobbit hobnob hock hockey
   hog holdover hole hollowed hollowly homage home homed homely homemade
   homemaker homespun homework homily homonym homophone homos honoree
@@ -846,7 +846,7 @@ our @Words = qw{
   wherever wherewith whet while whiled whimper whimsical whine whip whipping
   whippy whirr whirred whistle white whittle whiz whodunit wholly whomever
   whoop whoops whooshes wide widening widowed widower wield wielders
-  wiggle wiggly wild wildcard wile wilful willowy wills wimp win/win winced
+  wiggle wiggly wild wildcard wile wilful willowy wills wimp winced
   windage windswept wingman winsome winter wintry wipeout wiper wires wiretap
   wiry wise wisecrack wiseguy wishful withered within witless witling
   witticism wittiest wittingly wizen womanly wondered wonders wondrous
