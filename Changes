@@ -2,6 +2,10 @@ Revision history for Crypt-Diceware
 
 {{$NEXT}}
 
+  [FIXED]
+
+  - Removed words with a slash
+
 0.002     2013-01-08 22:54:21 America/New_York
 
   [DOCUMENTED]

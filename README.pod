@@ -6,7 +6,7 @@ Crypt::Diceware - Random passphrase generator loosely based on the Diceware algo
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
