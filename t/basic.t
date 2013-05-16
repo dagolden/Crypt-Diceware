@@ -17,6 +17,10 @@ for my $n ( 1 .. 4 ) {
   is( $count = () = words($n), $n, "words($n) returns list of $n words" );
 }
 
+for my $n ( 1 .. 4 ) {
+  is( $count = split(' ', scalar words($n)), $n, "scalar words($n) returns string of $n words" );
+}
+
 is( $count = () = words(3.14), 3, "words(3.14) returns list of 3 words" );
 
 isnt(
