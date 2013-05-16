@@ -4,7 +4,7 @@
       "David Golden <dagolden@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300029, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "apache_2_0"
    ],
@@ -50,8 +50,11 @@
       },
       "test" : {
          "requires" : {
+            "ExtUtils::MakeMaker" : "0",
             "File::Find" : "0",
+            "File::Spec::Functions" : "0",
             "File::Temp" : "0",
+            "List::Util" : "0",
             "Test::More" : "0.96"
          }
       }
@@ -86,6 +89,9 @@
          "web" : "https://github.com/dagolden/crypt-diceware"
       }
    },
-   "version" : "0.003"
+   "version" : "0.003",
+   "x_contributors" : [
+      "Neil Bowers <neil@bowers.com>"
+   ]
 }
 

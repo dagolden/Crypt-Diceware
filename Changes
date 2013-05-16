@@ -2,17 +2,21 @@ Revision history for Crypt-Diceware
 
 {{$NEXT}}
 
-  [FIXED]
+    [CHANGED]
 
-  - Removed words with a slash
+    - In scalar context, returns words joined by space
+
+    [FIXED]
+
+    - Removed words with a slash
 
 0.002     2013-01-08 22:54:21 America/New_York
 
-  [DOCUMENTED]
+    [DOCUMENTED]
 
-  - Added link to Neil Bower's comparison of CPAN password generators
+    - Added link to Neil Bower's comparison of CPAN password generators
 
 0.001     2013-01-08 21:43:47 America/New_York
 
-  - First release
+    - First release
 
