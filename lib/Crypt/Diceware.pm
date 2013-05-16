@@ -29,7 +29,8 @@ sub _build_words {
   return sub {
     my ($n) = @_;
     return unless $n && $n > 0;
-    return map { pick_r($list) } 1 .. int($n);
+    my @w = map { pick_r($list) } 1 .. int($n);
+    return wantarray ? @w : join(' ', @w);
   };
 }
 
@@ -78,9 +79,13 @@ Exporting is done via L<Sub::Exporter> so any of its features may be used:
 
   my @phrase = words(4);
 
-Takes a positive numeric argument and returns a list of that many
-randomly-selected words.  Returns the empty list if the argument is missing or
-not a positive number.
+Takes a positive numeric argument and returns a passphrase of that many
+randomly-selected words. In a list context it will return a list of words, as above.
+In a scalar context it will return a string with the words separated with a single space character:
+
+  my $phrase = words(4);
+
+Returns the empty list / string if the argument is missing or not a positive number.
 
 =head1 SEE ALSO
 
