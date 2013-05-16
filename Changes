@@ -2,6 +2,8 @@ Revision history for Crypt-Diceware
 
 {{$NEXT}}
 
+0.003     2013-05-16 17:59:58 America/New_York
+
     [CHANGED]
 
     - In scalar context, returns words joined by space
