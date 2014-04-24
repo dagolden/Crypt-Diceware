@@ -70,6 +70,11 @@ An alternate wordlist may be specified:
 
   use Crypt::Diceware words => { wordlist => 'Original' };
 
+This loads the wordlist provided by
+L<Crypt::Diceware::Wordlist::Original>. If the name of the wordlist
+contains I<::> the name of the wordlist is not prefixed by
+I<Crypt::Diceware::Wordlist>.
+
 Exporting is done via L<Sub::Exporter> so any of its features may be used:
 
   use Crypt::Diceware words => { -as => 'passphrase' };
