@@ -17,15 +17,23 @@ use Sub::Exporter -setup => {
 sub _build_words {
   my ( $class, $name, $arg ) = @_;
   $arg ||= {};
-  my $word_class = $arg->{wordlist} || 'Common';
-  unless ( $word_class =~ /::/ ) {
-    $word_class = "Crypt::Diceware::Wordlist::$word_class";
+  my $list;
+  if ( exists $arg->{file} ) {
+    my @list = do { local(@ARGV) = $arg->{file}; <> };
+    chomp(@list);
+    $list = \@list;
+  } 
+  else {
+    my $word_class = $arg->{wordlist} || 'Common';
+    unless ( $word_class =~ /::/ ) {
+      $word_class = "Crypt::Diceware::Wordlist::$word_class";
+    }
+    load_class($word_class);
+    $list = do {
+      no strict 'refs';
+      \@{"${word_class}::Words"};
+    };
   }
-  load_class($word_class);
-  my $list = do {
-    no strict 'refs';
-    \@{"${word_class}::Words"};
-  };
   return sub {
     my ($n) = @_;
     return unless $n && $n > 0;
@@ -74,6 +82,12 @@ This loads the wordlist provided by
 L<Crypt::Diceware::Wordlist::Original>. If the name of the wordlist
 contains I<::> the name of the wordlist is not prefixed by
 I<Crypt::Diceware::Wordlist>.
+
+It is also possible to load a wordlist from a file via:
+
+  use Crypt::Diceware words => { file => 'diceware-german.txt' };
+
+The supplied file should contain one word per line.
 
 Exporting is done via L<Sub::Exporter> so any of its features may be used:
 
