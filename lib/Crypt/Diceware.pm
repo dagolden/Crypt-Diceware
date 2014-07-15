@@ -10,36 +10,36 @@ use Class::Load qw/load_class/;
 use Data::Entropy::Algorithms qw/pick_r/;
 
 use Sub::Exporter -setup => {
-  exports => [ words   => \'_build_words' ],
-  groups  => { default => [qw/words/] },
+    exports => [ words   => \'_build_words' ],
+    groups  => { default => [qw/words/] },
 };
 
 sub _build_words {
-  my ( $class, $name, $arg ) = @_;
-  $arg ||= {};
-  my $list;
-  if ( exists $arg->{file} ) {
-    my @list = do { local(@ARGV) = $arg->{file}; <> };
-    chomp(@list);
-    $list = \@list;
-  } 
-  else {
-    my $word_class = $arg->{wordlist} || 'Common';
-    unless ( $word_class =~ /::/ ) {
-      $word_class = "Crypt::Diceware::Wordlist::$word_class";
+    my ( $class, $name, $arg ) = @_;
+    $arg ||= {};
+    my $list;
+    if ( exists $arg->{file} ) {
+        my @list = do { local (@ARGV) = $arg->{file}; <> };
+        chomp(@list);
+        $list = \@list;
     }
-    load_class($word_class);
-    $list = do {
-      no strict 'refs';
-      \@{"${word_class}::Words"};
+    else {
+        my $word_class = $arg->{wordlist} || 'Common';
+        unless ( $word_class =~ /::/ ) {
+            $word_class = "Crypt::Diceware::Wordlist::$word_class";
+        }
+        load_class($word_class);
+        $list = do {
+            no strict 'refs';
+            \@{"${word_class}::Words"};
+        };
+    }
+    return sub {
+        my ($n) = @_;
+        return unless $n && $n > 0;
+        my @w = map { pick_r($list) } 1 .. int($n);
+        return wantarray ? @w : join( ' ', @w );
     };
-  }
-  return sub {
-    my ($n) = @_;
-    return unless $n && $n > 0;
-    my @w = map { pick_r($list) } 1 .. int($n);
-    return wantarray ? @w : join(' ', @w);
-  };
 }
 
 1;
