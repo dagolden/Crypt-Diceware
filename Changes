@@ -2,6 +2,8 @@ Revision history for Crypt-Diceware
 
 {{$NEXT}}
 
+0.005     2014-07-15 12:57:24-04:00 America/New_York
+
     [ADDED]
 
     - Custom entropy source may be used
