@@ -2,6 +2,10 @@ Revision history for Crypt-Diceware
 
 {{$NEXT}}
 
+    [ADDED]
+
+    - Custom word files may be used
+
     [CHANGED]
 
     - Modernized distribution meta files
