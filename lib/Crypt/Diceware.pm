@@ -7,17 +7,30 @@ package Crypt::Diceware;
 # VERSION
 
 use Class::Load qw/load_class/;
+use Crypt::Rijndael;
+use Crypt::URandom;
+use Data::Entropy qw/with_entropy_source/;
 use Data::Entropy::Algorithms qw/pick_r/;
+use Data::Entropy::RawSource::CryptCounter;
+use Data::Entropy::Source;
 
 use Sub::Exporter -setup => {
     exports => [ words   => \'_build_words' ],
     groups  => { default => [qw/words/] },
 };
 
+my $ENTROPY = Data::Entropy::Source->new(
+    Data::Entropy::RawSource::CryptCounter->new(
+        Crypt::Rijndael->new( Crypt::URandom::urandom(32) )
+    ),
+    "getc"
+);
+
 sub _build_words {
     my ( $class, $name, $arg ) = @_;
     $arg ||= {};
     my $list;
+    my $entropy = $arg->{entropy} || $ENTROPY;
     if ( exists $arg->{file} ) {
         my @list = do { local (@ARGV) = $arg->{file}; <> };
         chomp(@list);
@@ -37,7 +50,12 @@ sub _build_words {
     return sub {
         my ($n) = @_;
         return unless $n && $n > 0;
-        my @w = map { pick_r($list) } 1 .. int($n);
+        my @w = with_entropy_source(
+            $entropy,
+            sub {
+                map { pick_r($list) } 1 .. int($n);
+            }
+        );
         return wantarray ? @w : join( ' ', @w );
     };
 }
@@ -61,13 +79,13 @@ This module generates a random passphrase of words based loosely on the
 L<Diceware|http://world.std.com/~reinhold/diceware.html> algorithm by Arnold G.
 Reinhold.
 
-A Diceware passphrase consists of a randomly selected words chosen from a list
+A Diceware passphrase consists of randomly selected words chosen from a list
 of over seven thousand words.  A passphrase of four or five words is likely to
 be stronger than typical human-generated passwords, which tend to be
 too-short and over-sample common letters ("e") and numbers ("1").
 
-Words are selected by randomly using L<Data::Entropy>, which is reasonably
-cryptographically strong.
+Words are randomly selected using L<Data::Entropy> in AES counter mode,
+seeded with L<Crypt::URandom>, which is reasonably cryptographically strong.
 
 =head1 USAGE
 
@@ -88,6 +106,11 @@ It is also possible to load a wordlist from a file via:
   use Crypt::Diceware words => { file => 'diceware-german.txt' };
 
 The supplied file should contain one word per line.
+
+You can also replace the entropy source with another L<Data::Entropy::Source>
+object:
+
+  use Crypt::Diceware words => { entropy => $entropy_source };
 
 Exporting is done via L<Sub::Exporter> so any of its features may be used:
 

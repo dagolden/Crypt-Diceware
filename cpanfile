@@ -1,5 +1,10 @@
 requires "Class::Load" => "0";
+requires "Crypt::Rijndael" => "0";
+requires "Crypt::URandom" => "0";
+requires "Data::Entropy" => "0";
 requires "Data::Entropy::Algorithms" => "0";
+requires "Data::Entropy::RawSource::CryptCounter" => "0";
+requires "Data::Entropy::Source" => "0";
 requires "Sub::Exporter" => "0";
 requires "perl" => "5.008001";
 requires "strict" => "0";
@@ -11,6 +16,7 @@ on 'test' => sub {
   requires "FindBin" => "0";
   requires "List::Util" => "0";
   requires "Test::More" => "0.96";
+  requires "lib" => "0";
   requires "version" => "0";
 };
 

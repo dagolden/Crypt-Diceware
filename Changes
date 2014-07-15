@@ -2,6 +2,15 @@ Revision history for Crypt-Diceware
 
 {{$NEXT}}
 
+    [ADDED]
+
+    - Custom entropy source may be used
+
+    [CHANGED]
+
+    - Default entropy source is now seeded with Crypt::URandom
+      instead of the Data::Entropy default using rand()
+
 0.004     2014-07-14 23:27:43-04:00 America/New_York
 
     [ADDED]
